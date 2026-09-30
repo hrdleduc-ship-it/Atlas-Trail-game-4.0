@@ -2604,7 +2604,7 @@
 const TEACHER_NAME = "Mr. LeDuc";
 const TEACHER_PIN = "1234";
 const FEEDBACK_FORM_URL = "";
-const CLASS_PERIODS = [];
+const CLASS_PERIODS = ["6E", "6D", "7L","7M", "8M", "8S"];
 
 /* ============================= LEADERBOARD (FIREBASE) =============================
    The class leaderboard and several other optional features (Class Race, Weekly Boss
@@ -2639,6 +2639,12 @@ const CLASS_PERIODS = [];
    abuse (silly score values, wrong grade, huge nicknames) but can't fully verify a
    score was earned legitimately. For a low-stakes classroom leaderboard this is a
    reasonable tradeoff; just know it isn't cheat-proof. */
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAkXUZ6JF3xspOuTbSkez3Q7DBFSAHS_JQ",
   authDomain: "atlas-trail-leaderboard.firebaseapp.com",
@@ -2647,8 +2653,9 @@ const firebaseConfig = {
   messagingSenderId: "546254072694",
   appId: "1:546254072694:web:8288e3450d87548f746857"
 };
-window.FIREBASE_CONFIG = FIREBASE_CONFIG;
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 /* ============================= QUESTION BANK ============================= */
 /* difficulty: 1 = easy, 2 = medium, 3 = hard */
 const QUESTIONS = [
